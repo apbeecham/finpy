@@ -4,7 +4,7 @@ from finpy.alphavantage import api as avapi
 
 class TestStocksApi(unittest.TestCase):
     def setUp(self):
-        req_path = 'alphavantage.api.requests.Session.get'
+        req_path = 'finpy.alphavantage.api.requests.Session.get'
         self.mock_get_patcher = mock.patch(req_path)
         self.mock_get = self.mock_get_patcher.start()
         self.mock_get.return_value.text = r'{"some":"json"}'
