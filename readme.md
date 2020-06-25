@@ -1,3 +1,5 @@
+![ci](https://github.com/apbeecham/finpy/workflows/ci/badge.svg)
+
 finpy
 ===
 
