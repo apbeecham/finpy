@@ -4,11 +4,12 @@ on: [push, pull_request]
 
 jobs:
   code-checks:
-    name: 'code checks'
+    name: code checks
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/finpy
     steps:
-      - name: ls
-        run: pwd
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
@@ -19,10 +20,13 @@ jobs:
         run: safety requirements.txt
 
   code-tests:
-    name: 'code tests'
+    name: code tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/finpy
     steps:
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: 'run tests'
+      - name: run tests
         run: pytest tests
