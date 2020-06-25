@@ -17,7 +17,7 @@ class TestStocksAPI(unittest.TestCase):
             target=mock_api_server.app.run
         )
         server_thread.setDaemon(True)
-        #server_thread.start()
+        server_thread.start()
 
         avapi.API_ENDPOINT = 'http://127.0.0.1:5000/query'
 
