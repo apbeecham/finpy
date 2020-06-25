@@ -10,6 +10,7 @@ jobs:
       run:
         working-directory: /home/runner/work/finpy
     steps:
+      - uses: actions/checkout@v1
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
@@ -26,6 +27,7 @@ jobs:
       run:
         working-directory: /home/runner/work/finpy
     steps:
+      - uses: actions/checkout@v1
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: run tests
