@@ -1,5 +1,0 @@
-steps:
-- name: python:3.7
-  args: ['bash', 'score_code.sh']
-- name: python:3.7
-  args: ['bash', 'run_tests.sh']
