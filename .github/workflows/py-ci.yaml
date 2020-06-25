@@ -6,7 +6,6 @@ jobs:
   code-checks:
     name: 'code checks'
     runs-on: ubuntu-latest
-    working-directory: ./finpy
     steps:
       - name: ls
         run: echo ${ls}
