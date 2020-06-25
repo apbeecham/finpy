@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: ls
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
@@ -23,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: run tests
