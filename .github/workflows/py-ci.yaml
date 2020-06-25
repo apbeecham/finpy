@@ -1,10 +1,6 @@
-name: py-ci
+name: ci
 
-on:
-  push:
-    branches: ['develop', 'qa', 'master']
-  pull_request:
-    branches: ['develop', 'qa', 'master']
+on: [push, pull_request]
 
 jobs:
   code-checks:
@@ -19,11 +15,10 @@ jobs:
         run: bandit finpy/.
       - name: dependency security
         run: safety requirements.txt
-  
+
   code-tests:
     name: 'code tests'
     runs-on: ubuntu-latest
     steps:
       - name: 'run tests'
         run: pytest tests
-      
