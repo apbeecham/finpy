@@ -1,6 +1,8 @@
+import time
 import threading
 import unittest.main
 
+import requests
 from finpy.alphavantage import api as avapi
 from tests.integration import mock_api_server
 
@@ -15,9 +17,22 @@ class TestStocksAPI(unittest.TestCase):
             target=mock_api_server.app.run
         )
         server_thread.setDaemon(True)
-        server_thread.start()
+        #server_thread.start()
 
         avapi.API_ENDPOINT = 'http://127.0.0.1:5000/query'
+
+        max_time = 5
+        time_elapsed = 0
+        start_time = time.time()
+
+        # if test server not started in 5 seconds then let the
+        # test script die
+        while time_elapsed < max_time:
+            try:
+                requests.get(avapi.API_ENDPOINT, timeout=1)
+                break
+            except:
+                time_elapsed = time.time() - start_time
 
     def setUp(self):
         api_key = '0000000000'
