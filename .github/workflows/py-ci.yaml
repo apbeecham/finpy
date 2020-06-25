@@ -7,6 +7,8 @@ jobs:
     name: 'code checks'
     runs-on: ubuntu-latest
     steps:
+      - name: list dir
+        run: ls
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
