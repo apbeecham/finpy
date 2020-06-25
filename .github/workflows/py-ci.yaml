@@ -18,7 +18,7 @@ jobs:
       - name: code security
         run: bandit finpy/.
       - name: dependency security
-        run safety requirements.txt
+        run: safety requirements.txt
   
   code-tests:
     name: 'code tests'
