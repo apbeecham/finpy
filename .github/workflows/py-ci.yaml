@@ -3,7 +3,7 @@ name: py-ci
 on:
   push:
     branches: ['develop', 'qa', 'master']
-  pull-request:
+  pull_request:
     branches: ['develop', 'qa', 'master']
 
 jobs:
