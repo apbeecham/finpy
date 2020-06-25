@@ -6,9 +6,10 @@ jobs:
   code-checks:
     name: 'code checks'
     runs-on: ubuntu-latest
+    working-directory: ./finpy
     steps:
-      - name: list dir
-        run: ls
+      - name: ls
+        run: echo ${ls}
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
@@ -22,5 +23,7 @@ jobs:
     name: 'code tests'
     runs-on: ubuntu-latest
     steps:
+      - name: install dependencies
+        run: pip install -r requirements.txt
       - name: 'run tests'
         run: pytest tests
