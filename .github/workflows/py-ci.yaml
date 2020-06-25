@@ -16,9 +16,9 @@ jobs:
       - name: lint
         run: pyflakes .
       - name: code security
-        run: bandit finpy/.
+        run: bandit -r finpy
       - name: dependency security
-        run: safety requirements.txt
+        run: safety check
 
   code-tests:
     name: code tests
