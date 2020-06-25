@@ -6,11 +6,9 @@ jobs:
   code-checks:
     name: code checks
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /home/runner/work/finpy
     steps:
       - uses: actions/checkout@v1
+      - run: ls
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: lint
@@ -23,9 +21,6 @@ jobs:
   code-tests:
     name: code tests
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /home/runner/work/finpy
     steps:
       - uses: actions/checkout@v1
       - name: install dependencies
