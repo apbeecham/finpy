@@ -28,7 +28,7 @@ jobs:
           git config --global user.name 'Action Bot'
           git config --global user.email 'action-bot@users.noreply.github.com'
 
-          cp -r ~/docs .
+          cp -r ~/docs/. .
           git add .
 
           git commit -m "auto-update docs"
