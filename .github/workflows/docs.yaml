@@ -1,0 +1,15 @@
+name: docs
+
+on: [push]
+  #push:
+  #  branches:
+  #    - master
+
+jobs:
+  make-docs:
+    name: make docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: make docs
+        run: cd docsrc && make github
