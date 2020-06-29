@@ -19,14 +19,14 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: make docs
-        run: cd docsrc && make html && mkdir /home/docs && cp -r build /home/docs
+        run: cd docsrc && make html && mkdir ~/docs && cp -r build ~/docs
       - name: update file and push to remote
         run: |
           git config --global user.name 'Action Bot'
           git config --global user.email 'action-bot@users.noreply.github.com'
 
           git checkout gh-pages
-          cp /home/docs .
+          cp ~/docs .
 
           git commit -m "auto-update docs"
           git push
