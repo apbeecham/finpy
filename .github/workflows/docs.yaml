@@ -18,3 +18,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: make docs
         run: cd docsrc && make github
+      - name: update file and push to remote
+        run: |
+          git add docs/**
+          git commit -m "build sphinx docs"
+          git push
