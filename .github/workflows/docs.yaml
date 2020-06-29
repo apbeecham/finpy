@@ -26,4 +26,4 @@ jobs:
           git add docs/**
 
           git commit -m "update html docs"
-          git push github HEAD:${GITHUB_REF}
+          git push
