@@ -4,8 +4,8 @@ on:
   push:
     paths-ignore:
       - docs/**
-    branches:
-      - master
+    #branches:
+    #  - master
 
 jobs:
   make-docs:
