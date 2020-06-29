@@ -2,8 +2,8 @@ name: build
 
 on:
   push:
-    paths-ignore:
-      - docs/**
+    branches-ignore:
+      - gh-pages
 jobs:
   code-checks:
     name: code checks
