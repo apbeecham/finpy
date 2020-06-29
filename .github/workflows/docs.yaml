@@ -19,7 +19,7 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: make docs
-        run: cd docsrc && make html && mkdir ~/docs && cp build/html/. ~/docs
+        run: cd docsrc && make html && mkdir ~/docs && cp -r build/html/. ~/docs
       - uses: actions/checkout@v2
         with:
           ref: 'gh-pages'
