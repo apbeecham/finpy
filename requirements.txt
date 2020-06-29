@@ -4,3 +4,5 @@ safety==1.8.5
 pyflakes==2.2.0
 pytest==5.2.1
 flask==1.1.1
+sphinx==3.1.1
+sphinx-autoapi==1.4.0
