@@ -1,4 +1,5 @@
 ![build](https://github.com/apbeecham/finpy/workflows/build/badge.svg)
+![docs](https://github.com/apbeecham/finpy/workflows/docs/badge.svg)
 
 finpy
 ===
