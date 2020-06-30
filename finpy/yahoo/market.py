@@ -26,7 +26,7 @@ class Client:
                 gains in today's market.
         """
         end_point = 'mu/topmutualfunds'
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_top_gainers(self):
@@ -37,7 +37,7 @@ class Client:
                 in today's market.
         """
         end_point = 'ga/topgainers'
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_most_watched(self):
@@ -48,7 +48,7 @@ class Client:
                 today's market.
         """
         end_point = 'tr/trending'
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_news(self, symbol):
@@ -63,7 +63,7 @@ class Client:
         """
 
         end_point = 'tr/trending'
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_quotes(self, symbols):
@@ -91,6 +91,3 @@ class Client:
         end_point = 'et/topetfs'
         response = self._session.get(self.API_URL + end_point)
         return response.text
-
-api = MarketApi('855b1e029amshcf5243c73b554d9p1b980ajsnf329235c1018')
-print(api.get_quotes(['AAPL','MSFT']))

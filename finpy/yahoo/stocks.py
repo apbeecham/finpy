@@ -42,7 +42,7 @@ class Client:
                 the provided symbol.
         """
         end_point = 'qu/quote/{}/earnings-history'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
 
@@ -58,7 +58,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'qu/quote/{}/insider-holders'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_history(self, symbol, interval='1d'):
@@ -72,7 +72,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'hi/history/{}/{}'.format(symbol, Interval(interval))
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_financial_data(self, symbol):
@@ -86,7 +86,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/financial-data'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_cashflow_statement(self, symbol):
@@ -100,7 +100,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/cashflow-statement'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_insider_transactions(self, symbol):
@@ -114,7 +114,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/insider-transactions'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_profile(self, symbol):
@@ -128,7 +128,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/asset-profile'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_sec_filings(self, symbol):
@@ -142,7 +142,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/sec-filings'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_calendar_events(self, symbol):
@@ -156,7 +156,7 @@ class Client:
                 provided symbol.
         """
         end_point = 'qu/quote/{}/calendar-events'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_index_trend(self, symbol):
@@ -171,7 +171,7 @@ class Client:
                 information for the provided symbol.
         """
         end_point = 'qu/quote/{}/index-trend'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
 
@@ -187,7 +187,7 @@ class Client:
                 information for the provided symbol.
         """
         end_point = 'qu/quote/{}/earnings-trend'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_key_statistics(self, symbol):
@@ -200,7 +200,7 @@ class Client:
             str: A json string containing key statistics for the provided symbol.
         """
         end_point = 'qu/quote/{}/default-key-statistics'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_income_statement(self, symbol):
@@ -214,7 +214,7 @@ class Client:
                 information for the provided symbol.
         """
         end_point = 'qu/quote/{}/income-statement'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_earnings(self, symbol):
@@ -228,7 +228,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'qu/quote/{}/earnings'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_net_share_purchase_activity(self, symbol):
@@ -243,7 +243,7 @@ class Client:
                 information for the provided symbol.
         """
         end_point = 'qu/quote/{}/net-share-purchase-activity'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_upgrade_downgrade_history(self, symbol):
@@ -258,7 +258,7 @@ class Client:
                 history for the provided symbol.
         """
         end_point = 'qu/quote/{}/upgrade-downgrade-history'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_institution_ownership(self, symbol):
@@ -273,7 +273,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'qu/quote/{}/institution-ownership'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_recommendation_trend(self, symbol):
@@ -288,7 +288,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'qu/quote/{}/recommendation-trend'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
     def get_balance_sheet(self, symbol):
@@ -304,6 +304,3 @@ class Client:
         end_point = 'qu/quote/{}/balance-sheet'.format(symbol)
         response = self._session.get(self.API_URL + end_point)
         return response.text
-
-api = StocksApi('855b1e029amshcf5243c73b554d9p1b980ajsnf329235c1018')
-print(api.get_recommendation_trend('AAPL'))
