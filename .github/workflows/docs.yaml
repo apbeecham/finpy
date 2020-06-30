@@ -28,7 +28,7 @@ jobs:
           git config --global user.name 'Action Bot'
           git config --global user.email 'action-bot@users.noreply.github.com'
 
-          rm -r .
+          rm -r *
           cp -r ~/docs/. .
 
           git add .
