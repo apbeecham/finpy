@@ -302,7 +302,7 @@ class Client:
                 for the provided symbol.
         """
         end_point = 'qu/quote/{}/balance-sheet'.format(symbol)
-        response = self._session.get(API_URL + end_point)
+        response = self._session.get(self.API_URL + end_point)
         return response.text
 
 api = StocksApi('855b1e029amshcf5243c73b554d9p1b980ajsnf329235c1018')
