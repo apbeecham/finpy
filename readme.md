@@ -25,3 +25,6 @@ Python wrappers for financial data apis.
 We support the following apis:
 
 - [alphavantage](https://www.alphavantage.co)
+
+## Documentation
+[0.1.0](https://apbeecham.github.io/finpy/)
