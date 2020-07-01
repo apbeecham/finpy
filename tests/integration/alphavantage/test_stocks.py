@@ -4,7 +4,7 @@ import unittest.main
 
 import requests
 from finpy import alphavantage as av
-from tests.integration import mock_api_server
+from tests.fixtures import av_test_server
 
 class TestStocksAPI(unittest.TestCase):
     """ Integration Test cases for the alphavantage stock price
@@ -14,7 +14,7 @@ class TestStocksAPI(unittest.TestCase):
     def setUpClass(cls):
         server_thread = threading.Thread(
             group=None,
-            target=mock_api_server.app.run
+            target=av_test_server.app.run
         )
         server_thread.setDaemon(True)
         server_thread.start()

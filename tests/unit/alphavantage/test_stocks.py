@@ -2,7 +2,7 @@ import unittest
 from unittest import mock
 from finpy import alphavantage as av
 
-class TestStocksApi(unittest.TestCase):
+class TestStocksClient(unittest.TestCase):
     def setUp(self):
         req_path = 'finpy.alphavantage.stocks.requests.Session.get'
         self.mock_get_patcher = mock.patch(req_path)
