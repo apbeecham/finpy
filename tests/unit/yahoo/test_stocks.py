@@ -61,7 +61,7 @@ class TestStocksClient(unittest.TestCase):
         provided. """
 
         with self.assertRaises(ValueError):
-            data = self.client.get_history(
+            self.client.get_history(
                 'MSFT',
                 interval='1s'
             )
