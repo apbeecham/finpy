@@ -18,7 +18,7 @@ class TestStocksClient(unittest.TestCase):
         return data. """
 
         expected = self.mock_get.return_value.text
-        data = self.client.get_mutual_funds('MSFT')
+        data = self.client.get_mutual_funds()
         self.assertEqual(data, expected)
 
     def test_get_top_gainers(self):
@@ -26,7 +26,7 @@ class TestStocksClient(unittest.TestCase):
         return data. """
 
         expected = self.mock_get.return_value.text
-        data = self.client.get_top_gainers('MSFT')
+        data = self.client.get_top_gainers()
         self.assertEqual(data, expected)
 
     def test_get_most_watched(self):
@@ -34,7 +34,7 @@ class TestStocksClient(unittest.TestCase):
         return data. """
 
         expected = self.mock_get.return_value.text
-        data = self.client.get_most_watched('MSFT')
+        data = self.client.get_most_watched()
         self.assertEqual(data, expected)
 
     def test_get_news(self):
@@ -58,5 +58,5 @@ class TestStocksClient(unittest.TestCase):
         return data. """
 
         expected = self.mock_get.return_value.text
-        data = self.client.get_mutual_funds('MSFT')
+        data = self.client.get_mutual_funds()
         self.assertEqual(data, expected)
