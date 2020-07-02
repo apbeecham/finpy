@@ -1,5 +1,3 @@
-import json
-
 import flask
 
 ALLOWED_API_KEY = '0000000000'
