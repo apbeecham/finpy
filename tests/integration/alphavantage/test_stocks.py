@@ -6,25 +6,24 @@ import requests
 from finpy import alphavantage as av
 from tests.fixtures import av_test_server
 
-class TestStocksAPI(unittest.TestCase):
+class TestStockClient(unittest.TestCase):
     """ Integration Test cases for the alphavantage stock price
-    api. """
+    client. """
 
     @classmethod
     def setUpClass(cls):
-        server_thread = threading.Thread(
-            group=None,
-            target=av_test_server.app.run
+        cls.server_thread = threading.Thread(
+            target=av_test_server.app.run,
+            kwargs={'port':5000}
         )
-        server_thread.setDaemon(True)
-        server_thread.start()
+        cls.server_thread.setDaemon(True)
+        cls.server_thread.start()
 
         av.stocks.Client.API_URL = 'http://127.0.0.1:5000/query'
 
         max_time = 5
         time_elapsed = 0
         start_time = time.time()
-
         # if test server not started in 5 seconds then run the
         # test suite anyway...
         while time_elapsed < max_time:

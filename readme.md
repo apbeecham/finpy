@@ -23,9 +23,9 @@ financial data.
     ```
 
 ## API's
-We support the below apis hosted on rapidapi. We do not provide api keys, you will need to subscribe to your preferred apis before using the provided finpy clients.
+Supported apis are listed below. We do not provide api keys, you will need to register for keys from your preferred apis before using the provided finpy clients.
 
-- [alphavantage](https://rapidapi.com/alphavantage/api/alpha-vantage)
+- [alphavantage](https://www.alphavantage.co)
 - [yahoo](https://rapidapi.com/apidatacenter-api-data/api/yahoo-finance15)
 
 ## Documentation

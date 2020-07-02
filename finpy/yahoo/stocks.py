@@ -13,6 +13,9 @@ class Interval(enum.Enum):
     MONTH = '1m'
     QTR = '3m'
 
+    def __str__(self):
+        return self.value
+
 class Client:
     """ A client for the yahoo stocks api. Provides historic
     price and fundamental data for equities.
@@ -44,7 +47,6 @@ class Client:
         end_point = 'qu/quote/{}/earnings-history'.format(symbol)
         response = self._session.get(self.API_URL + end_point)
         return response.text
-
 
     def get_insider_holders(self, symbol):
         """ Request  insider holders' information for the provided
@@ -173,7 +175,6 @@ class Client:
         end_point = 'qu/quote/{}/index-trend'.format(symbol)
         response = self._session.get(self.API_URL + end_point)
         return response.text
-
 
     def get_earnings_trend(self, symbol):
         """ Request earnings trend history information for the
