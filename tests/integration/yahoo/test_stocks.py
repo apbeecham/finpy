@@ -220,7 +220,7 @@ class TestStockClient(unittest.TestCase):
 
     def test_get_balance_sheet(self):
         """ Test that a request successfully retrieves data if a
-        valid balance_sheer request is made. """
+        valid balance sheet request is made. """
 
         act_data = self.client.get_balance_sheet('AAPL')
         with open('tests/fixtures/yh-responses/balance-sheet.json', 'r') as f:
