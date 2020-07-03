@@ -1,30 +1,33 @@
 ![build](https://github.com/apbeecham/finpy/workflows/build/badge.svg)
 ![docs](https://github.com/apbeecham/finpy/workflows/docs/badge.svg)
 
-finpy
+finpy-0.2.0
 ===
 
-Python wrappers for financial data apis.
+## About
+Finpy is a collection of api clients that aims to provide a centralised source of mechanical and fundamental
+financial data from a range of providers.
 
 ## Quickstart
-
-1. Import your favourite api wrapper
+1. Import your favourite api
     ```python
-   from finpy.alphavantage import api
+   from finpy import alphavantage as av
     ```
-2. Create an api object
+2. Create an api client
     ```python
-   stock_api = api.StockApi(my_api_key)
+   client = av.stocks.Client(my_api_key)
     ```
 3. Request data
     ```python
-   stock_api.get_daily_data('MSFT')
+   data = client.get_daily_data('MSFT')
     ```
 
-## Wrappers
-We support the following apis:
+## API's
+Supported apis are listed below. You will need to register with these providers in order to retrieve an api key
+for use with our api clients.
 
-- [alphavantage](https://www.alphavantage.co)
+- (partial)[alphavantage](https://www.alphavantage.co)
+- (partial)[yahoo](https://rapidapi.com/apidatacenter-api-data/api/yahoo-finance15)
 
 ## Documentation
-[0.1.0](https://apbeecham.github.io/finpy/)
+View the latest documentation [here](https://apbeecham.github.io/finpy/).

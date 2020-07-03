@@ -1,11 +1,11 @@
 """
-Wrapper classes for Alphavantage APIs.
+Wrapper classes for Alphavantage stock APIs.
 """
 import enum
 
 import requests
 
-API_ENDPOINT = 'https://www.alphavantage.co/query'
+API_URL = 'https://www.alphavantage.co/query'
 
 class Interval(enum.Enum):
     """ Possible interval values for intraday requests. """
@@ -61,9 +61,9 @@ class Function(enum.Enum):
     def __str__(self):
         return self.value
 
-class StocksAPI():
-    """ A simple wrapper for the Stock Time Series functions provided by
-    the Alpha Vantage REST API.
+class Client:
+    """ A client for the Stock Time Series functions provided by
+    the AlphaVantage REST API.
 
     Args:
         api_key (str): An alpha vantage api key.
@@ -162,4 +162,4 @@ class StocksAPI():
         # request equity data
         params['outputsize'] = OutputSize(output_size)
         params['datatype'] = DataType(data_type)
-        return self._session.get(API_ENDPOINT, params=params)
+        return self._session.get(API_URL, params=params)

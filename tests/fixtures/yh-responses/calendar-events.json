@@ -1,0 +1,48 @@
+{
+    "calendarEvents": {
+        "maxAge": 1,
+        "earnings": {
+            "earningsDate": [
+                {
+                    "raw": 1596067200,
+                    "fmt": "2020-07-30"
+                }
+            ],
+            "earningsAverage": {
+                "raw": 2,
+                "fmt": "2.00"
+            },
+            "earningsLow": {
+                "raw": 1.5500000000000000444089209850062616169452667236328125,
+                "fmt": "1.55"
+            },
+            "earningsHigh": {
+                "raw": 2.470000000000000195399252334027551114559173583984375,
+                "fmt": "2.47"
+            },
+            "revenueAverage": {
+                "raw": 51510300000,
+                "fmt": "51.51B",
+                "longFmt": "51,510,300,000"
+            },
+            "revenueLow": {
+                "raw": 42799000000,
+                "fmt": "42.8B",
+                "longFmt": "42,799,000,000"
+            },
+            "revenueHigh": {
+                "raw": 55838000000,
+                "fmt": "55.84B",
+                "longFmt": "55,838,000,000"
+            }
+        },
+        "exDividendDate": {
+            "raw": 1588896000,
+            "fmt": "2020-05-08"
+        },
+        "dividendDate": {
+            "raw": 1589414400,
+            "fmt": "2020-05-14"
+        }
+    }
+}
