@@ -34,13 +34,631 @@
             
   <div class="section" id="module-finpy.yahoo">
 <span id="finpy-yahoo"></span><h1><a class="reference internal" href="#module-finpy.yahoo" title="finpy.yahoo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.yahoo</span></code></a><a class="headerlink" href="#module-finpy.yahoo" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="market/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.yahoo.market</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="stocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.yahoo.stocks</span></code></a></li>
-</ul>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.yahoo.MarketClient" title="finpy.yahoo.MarketClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MarketClient</span></code></a>(api_key)</p></td>
+<td><p>A client for the yahoo market api yahoo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#finpy.yahoo.Interval" title="finpy.yahoo.Interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Interval</span></code></a>()</p></td>
+<td><p>Possible interval values for history requests.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.yahoo.StockClient" title="finpy.yahoo.StockClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StockClient</span></code></a>(api_key)</p></td>
+<td><p>A client for the yahoo stocks api. Provides historic</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="finpy.yahoo.MarketClient">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.yahoo.</code><code class="sig-name descname">MarketClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client for the yahoo market api yahoo.
+Provides market news and stats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>api_key</strong> (<em>str</em>) – A yahoo api key.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="finpy.yahoo.MarketClient.API_URL">
+<code class="sig-name descname">API_URL</code><em class="property"> = https://yahoo-finance15.p.rapidapi.com/api/yahoo/</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.API_URL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.API_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_mutual_funds">
+<code class="sig-name descname">get_mutual_funds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_mutual_funds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_mutual_funds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request mutual funds ordered by most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing mutual funds ordered by most</dt><dd><p>gains in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_top_gainers">
+<code class="sig-name descname">get_top_gainers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_top_gainers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_top_gainers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request stocks with the most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing stocks with the most gains</dt><dd><p>in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_most_watched">
+<code class="sig-name descname">get_most_watched</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_most_watched"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_most_watched" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request trending stocks in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing trending stocks in</dt><dd><p>today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_news">
+<code class="sig-name descname">get_news</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_news"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_news" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request recently published news for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing recently published news for</dt><dd><p>the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_quote">
+<code class="sig-name descname">get_quote</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbols</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_quote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_quote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request quote data for stocks, etfs, mutual funds and more.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbols</strong> (<em>list</em>) – list of symbols for each target security.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing quote data for</dt><dd><p>the provided symbols.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.MarketClient.get_etfs">
+<code class="sig-name descname">get_etfs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#MarketClient.get_etfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.MarketClient.get_etfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request ETFs ordered by most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing ETFs ordered by most</dt><dd><p>gains in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.yahoo.Interval">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.yahoo.</code><code class="sig-name descname">Interval</code><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Possible interval values for history requests.</p>
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.M5">
+<code class="sig-name descname">M5</code><em class="property"> = 5m</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.M5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.M5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.M15">
+<code class="sig-name descname">M15</code><em class="property"> = 15m</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.M15"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.M15" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.M30">
+<code class="sig-name descname">M30</code><em class="property"> = 30m</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.M30"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.M30" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.HOUR">
+<code class="sig-name descname">HOUR</code><em class="property"> = 1h</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.HOUR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.HOUR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.DAY">
+<code class="sig-name descname">DAY</code><em class="property"> = 1d</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.DAY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.DAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.WEEK">
+<code class="sig-name descname">WEEK</code><em class="property"> = 1wk</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.WEEK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.WEEK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.MONTH">
+<code class="sig-name descname">MONTH</code><em class="property"> = 1m</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.MONTH"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.MONTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.yahoo.Interval.QTR">
+<code class="sig-name descname">QTR</code><em class="property"> = 3m</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.QTR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.QTR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.Interval.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#Interval.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.Interval.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.yahoo.StockClient">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.yahoo.</code><code class="sig-name descname">StockClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client for the yahoo stocks api. Provides historic
+price and fundamental data for equities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>api_key</strong> (<em>str</em>) – A yahoo api key.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="finpy.yahoo.StockClient.API_URL">
+<code class="sig-name descname">API_URL</code><em class="property"> = https://yahoo-finance15.p.rapidapi.com/api/yahoo/</em><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.API_URL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.API_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_earnings_history">
+<code class="sig-name descname">get_earnings_history</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_earnings_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_earnings_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request earnings history information for the provided
+symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing earnings history for</dt><dd><p>the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_insider_holders">
+<code class="sig-name descname">get_insider_holders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_insider_holders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_insider_holders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request  insider holders’ information for the provided
+symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing insider holders’ information</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_history">
+<code class="sig-name descname">get_history</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em>, <em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">'1d'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request historic data for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing historic data</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_financial_data">
+<code class="sig-name descname">get_financial_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_financial_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_financial_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request financial data for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing financial data for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_cashflow_statement">
+<code class="sig-name descname">get_cashflow_statement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_cashflow_statement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_cashflow_statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request cashflow statements for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing cashflow statements for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_insider_transactions">
+<code class="sig-name descname">get_insider_transactions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_insider_transactions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_insider_transactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request insider transactions for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing insider transactions for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_profile">
+<code class="sig-name descname">get_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request profile information for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing profile information for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_sec_filings">
+<code class="sig-name descname">get_sec_filings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_sec_filings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_sec_filings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request sec filings for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing sec filings for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_calendar_events">
+<code class="sig-name descname">get_calendar_events</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_calendar_events"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_calendar_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request calendar events for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing calendar events for the</dt><dd><p>provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_index_trend">
+<code class="sig-name descname">get_index_trend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_index_trend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_index_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request index trend earnings history information for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing index trend earnings history</dt><dd><p>information for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_earnings_trend">
+<code class="sig-name descname">get_earnings_trend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_earnings_trend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_earnings_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request earnings trend history information for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing earnings trend history</dt><dd><p>information for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_key_statistics">
+<code class="sig-name descname">get_key_statistics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_key_statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_key_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request key statistics data for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A json string containing key statistics for the provided symbol.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_income_statement">
+<code class="sig-name descname">get_income_statement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_income_statement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_income_statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request income statement data for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing income statement data</dt><dd><p>information for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_earnings">
+<code class="sig-name descname">get_earnings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_earnings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_earnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request earnings information for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing earnings information</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_net_share_purchase_activity">
+<code class="sig-name descname">get_net_share_purchase_activity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_net_share_purchase_activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_net_share_purchase_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request net share purchase activity information for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing net share purchase activity</dt><dd><p>information for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_upgrade_downgrade_history">
+<code class="sig-name descname">get_upgrade_downgrade_history</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_upgrade_downgrade_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_upgrade_downgrade_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request upgrade downgrade history for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing upgrade downgrade</dt><dd><p>history for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_institution_ownership">
+<code class="sig-name descname">get_institution_ownership</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_institution_ownership"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_institution_ownership" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request institution ownership data for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing institution ownership data</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_recommendation_trend">
+<code class="sig-name descname">get_recommendation_trend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_recommendation_trend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_recommendation_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request recommendation and trend data for the
+provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing recommendation and trend data</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.StockClient.get_balance_sheet">
+<code class="sig-name descname">get_balance_sheet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/yahoo.html#StockClient.get_balance_sheet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.StockClient.get_balance_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request balance sheet data for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing balance sheet data</dt><dd><p>for the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 </div>

@@ -4,11 +4,11 @@
 .. py:module:: finpy
 
 
-Subpackages
------------
+Submodules
+----------
 .. toctree::
    :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
    alphavantage/index.rst
    yahoo/index.rst

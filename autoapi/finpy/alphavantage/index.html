@@ -34,12 +34,277 @@
             
   <div class="section" id="module-finpy.alphavantage">
 <span id="finpy-alphavantage"></span><h1><a class="reference internal" href="#module-finpy.alphavantage" title="finpy.alphavantage"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.alphavantage</span></code></a><a class="headerlink" href="#module-finpy.alphavantage" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="stocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.alphavantage.stocks</span></code></a></li>
+<p><p>Alphavantage financial data client and utilities.</p>
+</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.alphavantage.Interval" title="finpy.alphavantage.Interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Interval</span></code></a>()</p></td>
+<td><p>Possible interval values for intraday requests.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#finpy.alphavantage.OutputSize" title="finpy.alphavantage.OutputSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputSize</span></code></a>()</p></td>
+<td><p>Output sizes of api responses. Use’full’ for the full</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.alphavantage.DataType" title="finpy.alphavantage.DataType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataType</span></code></a>()</p></td>
+<td><p>Available Formats for data returned from the api.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#finpy.alphavantage.Function" title="finpy.alphavantage.Function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Function</span></code></a>()</p></td>
+<td><p>The API function to use when making a request. Specifies</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.alphavantage.StockClient" title="finpy.alphavantage.StockClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StockClient</span></code></a>(api_key)</p></td>
+<td><p>A client for the Stock Time Series functions provided by</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="finpy.alphavantage.API_URL">
+<code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">API_URL</code><em class="property"> = https://www.alphavantage.co/query</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#API_URL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.API_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="finpy.alphavantage.Interval">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">Interval</code><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Possible interval values for intraday requests.</p>
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Interval.M1">
+<code class="sig-name descname">M1</code><em class="property"> = 1min</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.M1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.M1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Interval.M5">
+<code class="sig-name descname">M5</code><em class="property"> = 5min</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.M5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.M5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Interval.M15">
+<code class="sig-name descname">M15</code><em class="property"> = 15min</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.M15"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.M15" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Interval.M30">
+<code class="sig-name descname">M30</code><em class="property"> = 30min</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.M30"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.M30" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Interval.H1">
+<code class="sig-name descname">H1</code><em class="property"> = 60min</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.H1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.H1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.Interval.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Interval.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Interval.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.alphavantage.OutputSize">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">OutputSize</code><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#OutputSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.OutputSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Output sizes of api responses. Use’full’ for the full
+history or compact for the last 100 data points.</p>
+<dl class="py attribute">
+<dt id="finpy.alphavantage.OutputSize.FULL">
+<code class="sig-name descname">FULL</code><em class="property"> = full</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#OutputSize.FULL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.OutputSize.FULL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.OutputSize.COMPACT">
+<code class="sig-name descname">COMPACT</code><em class="property"> = compact</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#OutputSize.COMPACT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.OutputSize.COMPACT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.OutputSize.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#OutputSize.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.OutputSize.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.alphavantage.DataType">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">DataType</code><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#DataType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.DataType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Available Formats for data returned from the api.
+Either ‘csv’ or ‘json’.</p>
+<dl class="py attribute">
+<dt id="finpy.alphavantage.DataType.CSV">
+<code class="sig-name descname">CSV</code><em class="property"> = csv</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#DataType.CSV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.DataType.CSV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.DataType.JSON">
+<code class="sig-name descname">JSON</code><em class="property"> = json</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#DataType.JSON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.DataType.JSON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.DataType.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#DataType.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.DataType.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.alphavantage.Function">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">Function</code><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The API function to use when making a request. Specifies
+the granularity of the returned price data. ‘GLOBAL_QUOTE’
+provides the current price data only. ‘SYMBOL_SEARCH’ allows
+searching for valid symbols.</p>
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.QUOTE">
+<code class="sig-name descname">QUOTE</code><em class="property"> = GLOBAL_QUOTE</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.QUOTE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.QUOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.SEARCH">
+<code class="sig-name descname">SEARCH</code><em class="property"> = SYMBOL_SEARCH</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.SEARCH"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.SEARCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.INTRADAY">
+<code class="sig-name descname">INTRADAY</code><em class="property"> = TIME_SERIES_INTRADAY</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.INTRADAY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.INTRADAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.DAILY">
+<code class="sig-name descname">DAILY</code><em class="property"> = TIME_SERIES_DAILY</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.DAILY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.DAILY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.WEEKLY">
+<code class="sig-name descname">WEEKLY</code><em class="property"> = TIME_SERIES_WEEKLY</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.WEEKLY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.WEEKLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.MONTHLY">
+<code class="sig-name descname">MONTHLY</code><em class="property"> = TIME_SERIES_MONTHLY</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.MONTHLY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.MONTHLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.DAILY_ADJUSTED">
+<code class="sig-name descname">DAILY_ADJUSTED</code><em class="property"> = TIME_SERIES_DAILY_ADJUSTED</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.DAILY_ADJUSTED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.DAILY_ADJUSTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.WEEKLY_ADJUSTED">
+<code class="sig-name descname">WEEKLY_ADJUSTED</code><em class="property"> = TIME_SERIES_WEEKLY_ADJUSTED</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.WEEKLY_ADJUSTED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.WEEKLY_ADJUSTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="finpy.alphavantage.Function.MONTHLY_ADJUSTED">
+<code class="sig-name descname">MONTHLY_ADJUSTED</code><em class="property"> = TIME_SERIES_MONTHLY_ADJUSTED</em><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.MONTHLY_ADJUSTED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.MONTHLY_ADJUSTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.Function.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#Function.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.Function.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="finpy.alphavantage.StockClient">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.alphavantage.</code><code class="sig-name descname">StockClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#StockClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.StockClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client for the Stock Time Series functions provided by
+the AlphaVantage REST API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>api_key</strong> (<em>str</em>) – An alpha vantage api key.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="finpy.alphavantage.StockClient.get_intraday_data">
+<code class="sig-name descname">get_intraday_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em>, <em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">Interval.H1</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">OutputSize.COMPACT</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">DataType.JSON</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#StockClient.get_intraday_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.StockClient.get_intraday_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests intraday stock price time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – The symbol of the stock to retrieve data for.</p></li>
+<li><p><strong>interval</strong> (<em>str</em>) – The granularity of the returned time series data.</p></li>
+<li><p><strong>output_size</strong> (<em>str</em>) – The size of the output data. Either full for
+the entire history of the symbol or compact for the last 100
+entries.</p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – The format of the returned price data. either csv</p></li>
+<li><p><strong>json.</strong> (<em>or</em>) – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The body of the response from the api.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.StockClient.get_daily_data">
+<code class="sig-name descname">get_daily_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">OutputSize.COMPACT</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">DataType.JSON</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#StockClient.get_daily_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.StockClient.get_daily_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests daily stock price time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – The symbol of the stock to retrieve data for.</p></li>
+<li><p><strong>output_size</strong> (<em>str</em>) – The size of the output data. Either full for
+the entire history of the symbol or compact for the last 100
+entries.</p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – The format of the returned price data. either csv
+or json.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The body of the response from the api.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.StockClient.get_daily_adjusted_data">
+<code class="sig-name descname">get_daily_adjusted_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em>, <em class="sig-param"><span class="n">output_size</span><span class="o">=</span><span class="default_value">OutputSize.COMPACT</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">DataType.JSON</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#StockClient.get_daily_adjusted_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.StockClient.get_daily_adjusted_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests daily adjusted stock price time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – The symbol of the stock to retrieve data for.</p></li>
+<li><p><strong>output_size</strong> (<em>str</em>) – The size of the output data. Either full for
+the entire history of the symbol or compact for the last 100
+entries.</p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – The format of the returned price data. either csv
+or json.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The body of the response from the api.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.alphavantage.StockClient._handle_request">
+<code class="sig-name descname">_handle_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">params</span></em>, <em class="sig-param"><span class="n">output_size</span></em>, <em class="sig-param"><span class="n">data_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/finpy/alphavantage.html#StockClient._handle_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.alphavantage.StockClient._handle_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 </div>

@@ -5,19 +5,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>finpy.yahoo.stocks &#8212; finpy 0.1.0 documentation</title>
-    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+    <title>finpy.yahoo &#8212; finpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
    
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -32,33 +32,19 @@
 
           <div class="body" role="main">
             
-  <h1>Source code for finpy.yahoo.stocks</h1><div class="highlight"><pre>
+  <h1>Source code for finpy.yahoo</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">enum</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 
-<div class="viewcode-block" id="Interval"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval">[docs]</a><span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Possible interval values for history requests. &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="Interval.M5"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.M5">[docs]</a>    <span class="n">M5</span> <span class="o">=</span> <span class="s1">&#39;5m&#39;</span></div>
-<div class="viewcode-block" id="Interval.M15"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.M15">[docs]</a>    <span class="n">M15</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span></div>
-<div class="viewcode-block" id="Interval.M30"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.M30">[docs]</a>    <span class="n">M30</span> <span class="o">=</span> <span class="s1">&#39;30m&#39;</span></div>
-<div class="viewcode-block" id="Interval.HOUR"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.HOUR">[docs]</a>    <span class="n">HOUR</span> <span class="o">=</span> <span class="s1">&#39;1h&#39;</span></div>
-<div class="viewcode-block" id="Interval.DAY"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.DAY">[docs]</a>    <span class="n">DAY</span> <span class="o">=</span> <span class="s1">&#39;1d&#39;</span></div>
-<div class="viewcode-block" id="Interval.WEEK"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.WEEK">[docs]</a>    <span class="n">WEEK</span> <span class="o">=</span> <span class="s1">&#39;1wk&#39;</span></div>
-<div class="viewcode-block" id="Interval.MONTH"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.MONTH">[docs]</a>    <span class="n">MONTH</span> <span class="o">=</span> <span class="s1">&#39;1m&#39;</span></div>
-<div class="viewcode-block" id="Interval.QTR"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.QTR">[docs]</a>    <span class="n">QTR</span> <span class="o">=</span> <span class="s1">&#39;3m&#39;</span></div>
-
-<div class="viewcode-block" id="Interval.__str__"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Interval.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
-
-<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; A client for the yahoo stocks api. Provides historic</span>
-<span class="sd">    price and fundamental data for equities.</span>
+<div class="viewcode-block" id="MarketClient"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient">[docs]</a><span class="k">class</span> <span class="nc">MarketClient</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; A client for the yahoo market api yahoo.</span>
+<span class="sd">    Provides market news and stats.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        api_key (str): A yahoo api key.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Client.API_URL"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.API_URL">[docs]</a>    <span class="n">API_URL</span> <span class="o">=</span> <span class="s1">&#39;https://yahoo-finance15.p.rapidapi.com/api/yahoo/&#39;</span></div>
+
+<div class="viewcode-block" id="MarketClient.API_URL"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.API_URL">[docs]</a>    <span class="n">API_URL</span> <span class="o">=</span> <span class="s1">&#39;https://yahoo-finance15.p.rapidapi.com/api/yahoo/&#39;</span></div>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
@@ -68,7 +54,114 @@
             <span class="s1">&#39;x-rapidapi-key&#39;</span><span class="p">:</span> <span class="n">api_key</span>
         <span class="p">}</span>
 
-<div class="viewcode-block" id="Client.get_earnings_history"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_earnings_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="MarketClient.get_mutual_funds"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_mutual_funds">[docs]</a>    <span class="k">def</span> <span class="nf">get_mutual_funds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request mutual funds ordered by most gains in today&#39;s market.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing mutual funds ordered by most</span>
+<span class="sd">                gains in today&#39;s market.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;mu/topmutualfunds&#39;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="MarketClient.get_top_gainers"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_top_gainers">[docs]</a>    <span class="k">def</span> <span class="nf">get_top_gainers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request stocks with the most gains in today&#39;s market.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing stocks with the most gains</span>
+<span class="sd">                in today&#39;s market.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;ga/topgainers&#39;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="MarketClient.get_most_watched"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_most_watched">[docs]</a>    <span class="k">def</span> <span class="nf">get_most_watched</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request trending stocks in today&#39;s market.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing trending stocks in</span>
+<span class="sd">                today&#39;s market.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;tr/trending&#39;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="MarketClient.get_news"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_news">[docs]</a>    <span class="k">def</span> <span class="nf">get_news</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request recently published news for the provided symbol.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            symbol (str): The symbol for the target stock (e.g. AAPL).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing recently published news for</span>
+<span class="sd">                the provided symbol.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;ne/news/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="MarketClient.get_quote"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_quote">[docs]</a>    <span class="k">def</span> <span class="nf">get_quote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbols</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request quote data for stocks, etfs, mutual funds and more.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            symbols (list): list of symbols for each target security.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing quote data for</span>
+<span class="sd">                the provided symbols.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sym_str</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">symbols</span><span class="p">)</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;qu/quote/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sym_str</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="MarketClient.get_etfs"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.MarketClient.get_etfs">[docs]</a>    <span class="k">def</span> <span class="nf">get_etfs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Request ETFs ordered by most gains in today&#39;s market.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A json string containing ETFs ordered by most</span>
+<span class="sd">                gains in today&#39;s market.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;et/topetfs&#39;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div></div>
+
+
+<div class="viewcode-block" id="Interval"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval">[docs]</a><span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Possible interval values for history requests. &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Interval.M5"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.M5">[docs]</a>    <span class="n">M5</span> <span class="o">=</span> <span class="s1">&#39;5m&#39;</span></div>
+<div class="viewcode-block" id="Interval.M15"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.M15">[docs]</a>    <span class="n">M15</span> <span class="o">=</span> <span class="s1">&#39;15m&#39;</span></div>
+<div class="viewcode-block" id="Interval.M30"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.M30">[docs]</a>    <span class="n">M30</span> <span class="o">=</span> <span class="s1">&#39;30m&#39;</span></div>
+<div class="viewcode-block" id="Interval.HOUR"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.HOUR">[docs]</a>    <span class="n">HOUR</span> <span class="o">=</span> <span class="s1">&#39;1h&#39;</span></div>
+<div class="viewcode-block" id="Interval.DAY"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.DAY">[docs]</a>    <span class="n">DAY</span> <span class="o">=</span> <span class="s1">&#39;1d&#39;</span></div>
+<div class="viewcode-block" id="Interval.WEEK"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.WEEK">[docs]</a>    <span class="n">WEEK</span> <span class="o">=</span> <span class="s1">&#39;1wk&#39;</span></div>
+<div class="viewcode-block" id="Interval.MONTH"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.MONTH">[docs]</a>    <span class="n">MONTH</span> <span class="o">=</span> <span class="s1">&#39;1m&#39;</span></div>
+<div class="viewcode-block" id="Interval.QTR"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.QTR">[docs]</a>    <span class="n">QTR</span> <span class="o">=</span> <span class="s1">&#39;3m&#39;</span></div>
+
+<div class="viewcode-block" id="Interval.__str__"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.Interval.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
+
+<div class="viewcode-block" id="StockClient"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient">[docs]</a><span class="k">class</span> <span class="nc">StockClient</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; A client for the yahoo stocks api. Provides historic</span>
+<span class="sd">    price and fundamental data for equities.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        api_key (str): A yahoo api key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="StockClient.API_URL"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.API_URL">[docs]</a>    <span class="n">API_URL</span> <span class="o">=</span> <span class="s1">&#39;https://yahoo-finance15.p.rapidapi.com/api/yahoo/&#39;</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;x-rapidapi-host&#39;</span><span class="p">:</span> <span class="s2">&quot;yahoo-finance15.p.rapidapi.com&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;x-rapidapi-key&#39;</span><span class="p">:</span> <span class="n">api_key</span>
+        <span class="p">}</span>
+
+<div class="viewcode-block" id="StockClient.get_earnings_history"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_earnings_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request earnings history information for the provided</span>
 <span class="sd">        symbol.</span>
 
@@ -83,7 +176,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_insider_holders"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_insider_holders">[docs]</a>    <span class="k">def</span> <span class="nf">get_insider_holders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_insider_holders"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_insider_holders">[docs]</a>    <span class="k">def</span> <span class="nf">get_insider_holders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request  insider holders&#39; information for the provided</span>
 <span class="sd">        symbol.</span>
 
@@ -98,7 +191,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_history"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1d&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_history"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1d&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request historic data for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -112,7 +205,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_financial_data"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_financial_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_financial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_financial_data"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_financial_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_financial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request financial data for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -126,7 +219,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_cashflow_statement"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_cashflow_statement">[docs]</a>    <span class="k">def</span> <span class="nf">get_cashflow_statement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_cashflow_statement"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_cashflow_statement">[docs]</a>    <span class="k">def</span> <span class="nf">get_cashflow_statement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request cashflow statements for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -140,7 +233,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_insider_transactions"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_insider_transactions">[docs]</a>    <span class="k">def</span> <span class="nf">get_insider_transactions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_insider_transactions"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_insider_transactions">[docs]</a>    <span class="k">def</span> <span class="nf">get_insider_transactions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request insider transactions for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -154,7 +247,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_profile"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_profile">[docs]</a>    <span class="k">def</span> <span class="nf">get_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_profile"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_profile">[docs]</a>    <span class="k">def</span> <span class="nf">get_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request profile information for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -168,7 +261,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_sec_filings"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_sec_filings">[docs]</a>    <span class="k">def</span> <span class="nf">get_sec_filings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_sec_filings"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_sec_filings">[docs]</a>    <span class="k">def</span> <span class="nf">get_sec_filings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request sec filings for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -182,7 +275,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_calendar_events"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_calendar_events">[docs]</a>    <span class="k">def</span> <span class="nf">get_calendar_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_calendar_events"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_calendar_events">[docs]</a>    <span class="k">def</span> <span class="nf">get_calendar_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request calendar events for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -196,7 +289,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_index_trend"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_index_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_index_trend"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_index_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request index trend earnings history information for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -211,7 +304,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_earnings_trend"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_earnings_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_earnings_trend"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_earnings_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request earnings trend history information for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -226,7 +319,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_key_statistics"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_key_statistics">[docs]</a>    <span class="k">def</span> <span class="nf">get_key_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_key_statistics"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_key_statistics">[docs]</a>    <span class="k">def</span> <span class="nf">get_key_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request key statistics data for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -239,7 +332,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_income_statement"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_income_statement">[docs]</a>    <span class="k">def</span> <span class="nf">get_income_statement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_income_statement"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_income_statement">[docs]</a>    <span class="k">def</span> <span class="nf">get_income_statement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request income statement data for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -253,7 +346,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_earnings"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_earnings">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_earnings"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_earnings">[docs]</a>    <span class="k">def</span> <span class="nf">get_earnings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request earnings information for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -267,7 +360,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_net_share_purchase_activity"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_net_share_purchase_activity">[docs]</a>    <span class="k">def</span> <span class="nf">get_net_share_purchase_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_net_share_purchase_activity"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_net_share_purchase_activity">[docs]</a>    <span class="k">def</span> <span class="nf">get_net_share_purchase_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request net share purchase activity information for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -282,7 +375,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_upgrade_downgrade_history"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_upgrade_downgrade_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_upgrade_downgrade_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_upgrade_downgrade_history"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_upgrade_downgrade_history">[docs]</a>    <span class="k">def</span> <span class="nf">get_upgrade_downgrade_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request upgrade downgrade history for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -297,7 +390,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_institution_ownership"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_institution_ownership">[docs]</a>    <span class="k">def</span> <span class="nf">get_institution_ownership</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_institution_ownership"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_institution_ownership">[docs]</a>    <span class="k">def</span> <span class="nf">get_institution_ownership</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request institution ownership data for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -312,7 +405,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_recommendation_trend"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_recommendation_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_recommendation_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_recommendation_trend"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_recommendation_trend">[docs]</a>    <span class="k">def</span> <span class="nf">get_recommendation_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request recommendation and trend data for the</span>
 <span class="sd">        provided symbol.</span>
 
@@ -327,7 +420,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">+</span> <span class="n">end_point</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Client.get_balance_sheet"><a class="viewcode-back" href="../../../autoapi/finpy/yahoo/stocks/index.html#finpy.yahoo.stocks.Client.get_balance_sheet">[docs]</a>    <span class="k">def</span> <span class="nf">get_balance_sheet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<div class="viewcode-block" id="StockClient.get_balance_sheet"><a class="viewcode-back" href="../../autoapi/finpy/yahoo/index.html#finpy.yahoo.StockClient.get_balance_sheet">[docs]</a>    <span class="k">def</span> <span class="nf">get_balance_sheet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Request balance sheet data for the provided symbol.</span>
 
 <span class="sd">        Args:</span>
@@ -348,7 +441,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../../index.html">finpy</a></h1>
+<h1 class="logo"><a href="../../index.html">finpy</a></h1>
 
 
 
@@ -359,14 +452,14 @@
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../../../index.html">Documentation overview</a><ul>
-  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
   </ul></li>
   </ul></li>
 </ul>
@@ -374,7 +467,7 @@
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../../../search.html" method="get">
+    <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
