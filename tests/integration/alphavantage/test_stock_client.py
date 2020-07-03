@@ -19,7 +19,7 @@ class TestStockClient(unittest.TestCase):
         cls.server_thread.setDaemon(True)
         cls.server_thread.start()
 
-        av.stocks.Client.API_URL = 'http://127.0.0.1:5000/query'
+        av.StockClient.API_URL = 'http://127.0.0.1:5000/query'
 
         max_time = 5
         time_elapsed = 0
@@ -28,14 +28,14 @@ class TestStockClient(unittest.TestCase):
         # test suite anyway...
         while time_elapsed < max_time:
             try:
-                requests.get(av.stocks.Client.API_URL, timeout=1)
+                requests.get(av.StockClient.API_URL, timeout=1)
                 break
             except:
                 time_elapsed = time.time() - start_time
 
     def setUp(self):
         api_key = '0000000000'
-        self.client = av.stocks.Client(api_key)
+        self.client = av.StockClient(api_key)
 
     def test_get_intraday_request(self):
         """ Test that a request successfully retrieves data if a

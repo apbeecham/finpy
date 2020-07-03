@@ -1,5 +1,5 @@
 """
-Wrapper classes for Alphavantage stock APIs.
+Alphavantage financial data client and utilities.
 """
 import enum
 
@@ -61,7 +61,7 @@ class Function(enum.Enum):
     def __str__(self):
         return self.value
 
-class Client:
+class StockClient:
     """ A client for the Stock Time Series functions provided by
     the AlphaVantage REST API.
 

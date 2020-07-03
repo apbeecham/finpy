@@ -3,15 +3,15 @@ from unittest import mock
 
 from finpy import yahoo as yh
 
-class TestStocksClient(unittest.TestCase):
+class TestMarketClient(unittest.TestCase):
     def setUp(self):
-        req_path = 'finpy.yahoo.market.requests.Session.get'
+        req_path = 'finpy.yahoo.requests.Session.get'
         self.mock_get_patcher = mock.patch(req_path)
         self.mock_get = self.mock_get_patcher.start()
         self.mock_get.return_value.text = r'{"some":"json"}'
 
         mock_key = '0000000000'
-        self.client = yh.market.Client(mock_key)
+        self.client = yh.MarketClient(mock_key)
 
     def test_get_mutual_funds(self):
         """ test that a valid mutual funds request will

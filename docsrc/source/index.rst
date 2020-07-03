@@ -1,4 +1,4 @@
-finpy-0.2.0
+finpy-0.3.0
 =================================
 
 About
@@ -25,7 +25,7 @@ Get up and running in three easy steps:
 
 .. code-block:: python
 
-    client = av.stocks.Client(my_api_key)
+    client = av.StockClient(my_api_key)
 
 3. Request data:
 

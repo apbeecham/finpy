@@ -19,7 +19,7 @@ class TestMarketClient(unittest.TestCase):
         cls.server_thread.setDaemon(True)
         cls.server_thread.start()
 
-        yh.market.Client.API_URL = 'http://127.0.0.1:5002/'
+        yh.MarketClient.API_URL = 'http://127.0.0.1:5002/'
 
         max_time = 5
         time_elapsed = 0
@@ -29,14 +29,14 @@ class TestMarketClient(unittest.TestCase):
         # test suite anyway...
         while time_elapsed < max_time:
             try:
-                requests.get(yh.market.Client.API_URL, timeout=1)
+                requests.get(yh.MarketClient.API_URL, timeout=1)
                 break
             except:
                 time_elapsed = time.time() - start_time
 
     def setUp(self):
         api_key = '0000000000'
-        self.client = yh.market.Client(api_key)
+        self.client = yh.MarketClient(api_key)
 
     def test_get_mutual_funds(self):
         """ Test that a request successfully retrieves data if a

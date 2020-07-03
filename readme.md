@@ -1,7 +1,7 @@
 ![build](https://github.com/apbeecham/finpy/workflows/build/badge.svg)
 ![docs](https://github.com/apbeecham/finpy/workflows/docs/badge.svg)
 
-finpy-0.2.0
+finpy-0.3.0
 ===
 
 ## About
@@ -15,7 +15,7 @@ financial data from a range of providers.
     ```
 2. Create an api client
     ```python
-   client = av.stocks.Client(my_api_key)
+   client = av.StockClient(my_api_key)
     ```
 3. Request data
     ```python

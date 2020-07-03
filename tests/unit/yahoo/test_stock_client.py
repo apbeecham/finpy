@@ -2,15 +2,15 @@ import unittest
 from unittest import mock
 from finpy import yahoo as yh
 
-class TestStocksClient(unittest.TestCase):
+class TestStockClient(unittest.TestCase):
     def setUp(self):
-        req_path = 'finpy.yahoo.stocks.requests.Session.get'
+        req_path = 'finpy.yahoo.requests.Session.get'
         self.mock_get_patcher = mock.patch(req_path)
         self.mock_get = self.mock_get_patcher.start()
         self.mock_get.return_value.text = r'{"some":"json"}'
 
         mock_key = '0000000000'
-        self.client = yh.stocks.Client(mock_key)
+        self.client = yh.StockClient(mock_key)
 
     def test_get_earnings_history(self):
         """ test that a valid earnings history request will
@@ -51,7 +51,7 @@ class TestStocksClient(unittest.TestCase):
         expected = self.mock_get.return_value.text
         data = self.client.get_history(
             'MSFT',
-            interval=yh.stocks.Interval.M5
+            interval=yh.Interval.M5
         )
         self.assertEqual(data, expected)
 

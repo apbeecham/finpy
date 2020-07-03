@@ -2,15 +2,15 @@ import unittest
 from unittest import mock
 from finpy import alphavantage as av
 
-class TestStocksClient(unittest.TestCase):
+class TestStockClient(unittest.TestCase):
     def setUp(self):
-        req_path = 'finpy.alphavantage.stocks.requests.Session.get'
+        req_path = 'finpy.alphavantage.requests.Session.get'
         self.mock_get_patcher = mock.patch(req_path)
         self.mock_get = self.mock_get_patcher.start()
         self.mock_get.return_value.text = r'{"some":"json"}'
 
         mock_key = '0000000000'
-        self.client = av.stocks.Client(mock_key)
+        self.client = av.StockClient(mock_key)
 
     def test_get_intraday_with_default_params(self):
         """ test that a valid intraday request with
@@ -80,9 +80,9 @@ class TestStocksClient(unittest.TestCase):
         expected = self.mock_get.return_value.text
         data = self.client.get_intraday_data(
             'MSFT',
-            interval=av.stocks.Interval.M1,
-            output_size=av.stocks.OutputSize.FULL,
-            data_type=av.stocks.DataType.CSV
+            interval=av.Interval.M1,
+            output_size=av.OutputSize.FULL,
+            data_type=av.DataType.CSV
         )
         self.assertEqual(data, expected)
 
@@ -93,8 +93,8 @@ class TestStocksClient(unittest.TestCase):
         expected = self.mock_get.return_value.text
         data = self.client.get_daily_data(
             'MSFT',
-            output_size=av.stocks.OutputSize.FULL,
-            data_type=av.stocks.DataType.CSV
+            output_size=av.OutputSize.FULL,
+            data_type=av.DataType.CSV
         )
         self.assertEqual(data, expected)
 
@@ -105,8 +105,8 @@ class TestStocksClient(unittest.TestCase):
         expected = self.mock_get.return_value.text
         data = self.client.get_daily_adjusted_data(
             'MSFT',
-            output_size=av.stocks.OutputSize.FULL,
-            data_type=av.stocks.DataType.CSV
+            output_size=av.OutputSize.FULL,
+            data_type=av.DataType.CSV
         )
         self.assertEqual(data, expected)
 
