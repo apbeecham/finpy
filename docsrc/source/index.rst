@@ -1,10 +1,13 @@
-finpy
+finpy-0.2.0
 =================================
-financial data apis for python.
+
+About
+#####
+Finpy is a collection of api clients that aims to provide a centralised source of mechanical and fundamental
+financial data from a range of providers.
 
 Contents
 ########
-
 .. toctree::
    :maxdepth: 1
 
@@ -16,26 +19,30 @@ Get up and running in three easy steps:
 
 .. code-block:: python
 
-    from finpy.alphavantage import api
+    from finpy import alphavantage as av
 
-2. Create an api object*:
+2. Create a client:
 
 .. code-block:: python
 
-    stock_api = api.StockApi(my_api_key)
+    client = av.stocks.Client(my_api_key)
 
 3. Request data:
 
 .. code-block:: python
 
-    stock_api.get_daily_data('MSFT')
+    client.get_daily_data('MSFT')
 
-\*api keys not included.
+API's
+#####
+Supported apis are listed below. You will need to register with these providers in order to retrieve an api key
+for use with our api clients.
 
+* (partial) `alphavantage <https://www.alphavantage.co>`_
+* (partial) `yahoo <https://rapidapi.com/apidatacenter-api-data/api/yahoo-finance15>`_
 
 Indices and tables
 ##################
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
