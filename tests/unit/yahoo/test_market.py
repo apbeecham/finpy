@@ -45,12 +45,12 @@ class TestStocksClient(unittest.TestCase):
         data = self.client.get_news('MSFT')
         self.assertEqual(data, expected)
 
-    def test_get_quotes(self):
-        """ test that a valid quotes request will
+    def test_get_quote(self):
+        """ test that a valid quote request will
         return data. """
 
         expected = self.mock_get.return_value.text
-        data = self.client.get_quotes('MSFT')
+        data = self.client.get_quote('MSFT')
         self.assertEqual(data, expected)
 
     def test_get_etfs(self):

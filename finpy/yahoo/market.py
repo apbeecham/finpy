@@ -62,15 +62,15 @@ class Client:
                 the provided symbol.
         """
 
-        end_point = 'tr/trending'
+        end_point = 'ne/news/{}'.format(symbol)
         response = self._session.get(self.API_URL + end_point)
         return response.text
 
-    def get_quotes(self, symbols):
+    def get_quote(self, symbols):
         """ Request quote data for stocks, etfs, mutual funds and more.
 
         Args:
-            symbols (array): array of symbol for each target security.
+            symbols (list): list of symbols for each target security.
 
         Returns:
             str: A json string containing quote data for

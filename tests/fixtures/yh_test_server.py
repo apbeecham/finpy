@@ -89,6 +89,29 @@ def recommendation_trend():
 def balance_sheet():
     return _get_response('tests/fixtures/yh-responses/balance-sheet.json')
 
+@app.route('/mu/topmutualfunds', methods = ['GET'])
+def mutual_funds():
+    return _get_response('tests/fixtures/yh-responses/mutual-funds.json')
+
+@app.route('/ga/topgainers', methods = ['GET'])
+def top_gainers():
+    return _get_response('tests/fixtures/yh-responses/top-gainers.json')
+
+@app.route('/tr/trending', methods = ['GET'])
+def most_watched():
+    return _get_response('tests/fixtures/yh-responses/most-watched.json')
+
+@app.route('/ne/news/AAPL', methods = ['GET'])
+def news():
+    return _get_response('tests/fixtures/yh-responses/news.json')
+
+@app.route('/qu/quote/AAPL', methods = ['GET'])
+def quote():
+    return _get_response('tests/fixtures/yh-responses/quote.json')
+
+@app.route('/et/topetfs', methods = ['GET'])
+def etfs():
+    return _get_response('tests/fixtures/yh-responses/etfs.json')
 
 if __name__ == '__main__':
     app.run()
