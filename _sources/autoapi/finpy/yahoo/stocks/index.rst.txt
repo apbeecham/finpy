@@ -1,0 +1,376 @@
+:mod:`finpy.yahoo.stocks`
+=========================
+
+.. py:module:: finpy.yahoo.stocks
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   finpy.yahoo.stocks.Interval
+   finpy.yahoo.stocks.Client
+
+
+
+.. py:class:: Interval
+
+   Bases: :class:`enum.Enum`
+
+   Possible interval values for history requests.
+
+   .. attribute:: M5
+      :annotation: = 5m
+
+      
+
+   .. attribute:: M15
+      :annotation: = 15m
+
+      
+
+   .. attribute:: M30
+      :annotation: = 30m
+
+      
+
+   .. attribute:: HOUR
+      :annotation: = 1h
+
+      
+
+   .. attribute:: DAY
+      :annotation: = 1d
+
+      
+
+   .. attribute:: WEEK
+      :annotation: = 1wk
+
+      
+
+   .. attribute:: MONTH
+      :annotation: = 1m
+
+      
+
+   .. attribute:: QTR
+      :annotation: = 3m
+
+      
+
+   .. method:: __str__(self)
+
+
+      Return str(self).
+
+
+
+.. py:class:: Client(api_key)
+
+   A client for the yahoo stocks api. Provides historic
+   price and fundamental data for equities.
+
+   :param api_key: A yahoo api key.
+   :type api_key: str
+
+   .. attribute:: API_URL
+      :annotation: = https://yahoo-finance15.p.rapidapi.com/api/yahoo/
+
+      
+
+   .. method:: get_earnings_history(self, symbol)
+
+
+      Request earnings history information for the provided
+      symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing earnings history for
+                    the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_insider_holders(self, symbol)
+
+
+      Request  insider holders' information for the provided
+      symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing insider holders' information
+                    for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_history(self, symbol, interval='1d')
+
+
+      Request historic data for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing historic data
+                    for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_financial_data(self, symbol)
+
+
+      Request financial data for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing financial data for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_cashflow_statement(self, symbol)
+
+
+      Request cashflow statements for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing cashflow statements for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_insider_transactions(self, symbol)
+
+
+      Request insider transactions for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing insider transactions for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_profile(self, symbol)
+
+
+      Request profile information for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing profile information for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_sec_filings(self, symbol)
+
+
+      Request sec filings for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing sec filings for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_calendar_events(self, symbol)
+
+
+      Request calendar events for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing calendar events for the
+                    provided symbol.
+      :rtype: str
+
+
+   .. method:: get_index_trend(self, symbol)
+
+
+      Request index trend earnings history information for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing index trend earnings history
+                    information for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_earnings_trend(self, symbol)
+
+
+      Request earnings trend history information for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing earnings trend history
+                    information for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_key_statistics(self, symbol)
+
+
+      Request key statistics data for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns: A json string containing key statistics for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_income_statement(self, symbol)
+
+
+      Request income statement data for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing income statement data
+                    information for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_earnings(self, symbol)
+
+
+      Request earnings information for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing earnings information
+                    for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_net_share_purchase_activity(self, symbol)
+
+
+      Request net share purchase activity information for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing net share purchase activity
+                    information for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_upgrade_downgrade_history(self, symbol)
+
+
+      Request upgrade downgrade history for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing upgrade downgrade
+                    history for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_institution_ownership(self, symbol)
+
+
+      Request institution ownership data for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing institution ownership data
+                    for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_recommendation_trend(self, symbol)
+
+
+      Request recommendation and trend data for the
+      provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing recommendation and trend data
+                    for the provided symbol.
+      :rtype: str
+
+
+   .. method:: get_balance_sheet(self, symbol)
+
+
+      Request balance sheet data for the provided symbol.
+
+      :param symbol: The symbol for the target stock (e.g. AAPL).
+      :type symbol: str
+
+      :returns:
+
+                A json string containing balance sheet data
+                    for the provided symbol.
+      :rtype: str
+
+
+

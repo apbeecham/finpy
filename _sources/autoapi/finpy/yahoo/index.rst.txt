@@ -1,0 +1,16 @@
+:mod:`finpy.yahoo`
+==================
+
+.. py:module:: finpy.yahoo
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   market/index.rst
+   stocks/index.rst
+
+

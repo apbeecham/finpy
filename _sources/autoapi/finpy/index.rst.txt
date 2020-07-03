@@ -1,0 +1,16 @@
+:mod:`finpy`
+============
+
+.. py:module:: finpy
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   alphavantage/index.rst
+   yahoo/index.rst
+
+

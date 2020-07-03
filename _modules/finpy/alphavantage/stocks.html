@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finpy.alphavantage.stocks &#8212; finpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for finpy.alphavantage.stocks</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Wrapper classes for Alphavantage stock APIs.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">enum</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<div class="viewcode-block" id="API_URL"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.API_URL">[docs]</a><span class="n">API_URL</span> <span class="o">=</span> <span class="s1">&#39;https://www.alphavantage.co/query&#39;</span></div>
+
+<div class="viewcode-block" id="Interval"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval">[docs]</a><span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Possible interval values for intraday requests. &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Interval.M1"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.M1">[docs]</a>    <span class="n">M1</span> <span class="o">=</span> <span class="s1">&#39;1min&#39;</span></div>
+<div class="viewcode-block" id="Interval.M5"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.M5">[docs]</a>    <span class="n">M5</span> <span class="o">=</span> <span class="s1">&#39;5min&#39;</span></div>
+<div class="viewcode-block" id="Interval.M15"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.M15">[docs]</a>    <span class="n">M15</span> <span class="o">=</span> <span class="s1">&#39;15min&#39;</span></div>
+<div class="viewcode-block" id="Interval.M30"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.M30">[docs]</a>    <span class="n">M30</span> <span class="o">=</span> <span class="s1">&#39;30min&#39;</span></div>
+<div class="viewcode-block" id="Interval.H1"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.H1">[docs]</a>    <span class="n">H1</span> <span class="o">=</span> <span class="s1">&#39;60min&#39;</span></div>
+
+<div class="viewcode-block" id="Interval.__str__"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Interval.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
+
+<div class="viewcode-block" id="OutputSize"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.OutputSize">[docs]</a><span class="k">class</span> <span class="nc">OutputSize</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Output sizes of api responses. Use&#39;full&#39; for the full</span>
+<span class="sd">    history or compact for the last 100 data points.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OutputSize.FULL"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.OutputSize.FULL">[docs]</a>    <span class="n">FULL</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span></div>
+<div class="viewcode-block" id="OutputSize.COMPACT"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.OutputSize.COMPACT">[docs]</a>    <span class="n">COMPACT</span> <span class="o">=</span> <span class="s1">&#39;compact&#39;</span></div>
+
+<div class="viewcode-block" id="OutputSize.__str__"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.OutputSize.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
+
+<div class="viewcode-block" id="DataType"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.DataType">[docs]</a><span class="k">class</span> <span class="nc">DataType</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Available Formats for data returned from the api.</span>
+<span class="sd">    Either &#39;csv&#39; or &#39;json&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DataType.CSV"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.DataType.CSV">[docs]</a>    <span class="n">CSV</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span></div>
+<div class="viewcode-block" id="DataType.JSON"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.DataType.JSON">[docs]</a>    <span class="n">JSON</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span></div>
+
+<div class="viewcode-block" id="DataType.__str__"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.DataType.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
+
+<div class="viewcode-block" id="Function"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function">[docs]</a><span class="k">class</span> <span class="nc">Function</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; The API function to use when making a request. Specifies</span>
+<span class="sd">    the granularity of the returned price data. &#39;GLOBAL_QUOTE&#39;</span>
+<span class="sd">    provides the current price data only. &#39;SYMBOL_SEARCH&#39; allows</span>
+<span class="sd">    searching for valid symbols.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Function.QUOTE"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.QUOTE">[docs]</a>    <span class="n">QUOTE</span> <span class="o">=</span> <span class="s1">&#39;GLOBAL_QUOTE&#39;</span></div>
+<div class="viewcode-block" id="Function.SEARCH"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.SEARCH">[docs]</a>    <span class="n">SEARCH</span> <span class="o">=</span> <span class="s1">&#39;SYMBOL_SEARCH&#39;</span></div>
+<div class="viewcode-block" id="Function.INTRADAY"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.INTRADAY">[docs]</a>    <span class="n">INTRADAY</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_INTRADAY&#39;</span></div>
+<div class="viewcode-block" id="Function.DAILY"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.DAILY">[docs]</a>    <span class="n">DAILY</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_DAILY&#39;</span></div>
+<div class="viewcode-block" id="Function.WEEKLY"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.WEEKLY">[docs]</a>    <span class="n">WEEKLY</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_WEEKLY&#39;</span></div>
+<div class="viewcode-block" id="Function.MONTHLY"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.MONTHLY">[docs]</a>    <span class="n">MONTHLY</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_MONTHLY&#39;</span></div>
+<div class="viewcode-block" id="Function.DAILY_ADJUSTED"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.DAILY_ADJUSTED">[docs]</a>    <span class="n">DAILY_ADJUSTED</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_DAILY_ADJUSTED&#39;</span></div>
+<div class="viewcode-block" id="Function.WEEKLY_ADJUSTED"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.WEEKLY_ADJUSTED">[docs]</a>    <span class="n">WEEKLY_ADJUSTED</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_WEEKLY_ADJUSTED&#39;</span></div>
+<div class="viewcode-block" id="Function.MONTHLY_ADJUSTED"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.MONTHLY_ADJUSTED">[docs]</a>    <span class="n">MONTHLY_ADJUSTED</span> <span class="o">=</span> <span class="s1">&#39;TIME_SERIES_MONTHLY_ADJUSTED&#39;</span></div>
+
+<div class="viewcode-block" id="Function.__str__"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Function.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div></div>
+
+<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; A client for the Stock Time Series functions provided by</span>
+<span class="sd">    the AlphaVantage REST API.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        api_key (str): An alpha vantage api key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;apikey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span>
+
+<div class="viewcode-block" id="Client.get_intraday_data"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Client.get_intraday_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_intraday_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">symbol</span><span class="p">,</span>
+                <span class="n">interval</span><span class="o">=</span><span class="n">Interval</span><span class="o">.</span><span class="n">H1</span><span class="p">,</span>
+                <span class="n">output_size</span><span class="o">=</span><span class="n">OutputSize</span><span class="o">.</span><span class="n">COMPACT</span><span class="p">,</span>
+                <span class="n">data_type</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">JSON</span>
+            <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Requests intraday stock price time series data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            symbol (str): The symbol of the stock to retrieve data for.</span>
+<span class="sd">            interval (str): The granularity of the returned time series data.</span>
+<span class="sd">            output_size (str): The size of the output data. Either full for</span>
+<span class="sd">                the entire history of the symbol or compact for the last 100</span>
+<span class="sd">                entries.</span>
+<span class="sd">            data_type (str): The format of the returned price data. either csv</span>
+<span class="sd">            or json.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The body of the response from the api.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">Function</span><span class="o">.</span><span class="n">INTRADAY</span><span class="p">,</span>
+            <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">symbol</span><span class="p">,</span>
+            <span class="s1">&#39;interval&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="n">interval</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_request</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="Client.get_daily_data"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Client.get_daily_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_daily_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">symbol</span><span class="p">,</span>
+                <span class="n">output_size</span><span class="o">=</span><span class="n">OutputSize</span><span class="o">.</span><span class="n">COMPACT</span><span class="p">,</span>
+                <span class="n">data_type</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">JSON</span>
+            <span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot; Requests daily stock price time series data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            symbol (str): The symbol of the stock to retrieve data for.</span>
+<span class="sd">            output_size (str): The size of the output data. Either full for</span>
+<span class="sd">                the entire history of the symbol or compact for the last 100</span>
+<span class="sd">                entries.</span>
+<span class="sd">            data_type (str): The format of the returned price data. either csv</span>
+<span class="sd">                or json.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The body of the response from the api.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">Function</span><span class="o">.</span><span class="n">DAILY</span><span class="p">,</span>
+            <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">symbol</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_request</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="Client.get_daily_adjusted_data"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Client.get_daily_adjusted_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_daily_adjusted_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">symbol</span><span class="p">,</span>
+                <span class="n">output_size</span><span class="o">=</span><span class="n">OutputSize</span><span class="o">.</span><span class="n">COMPACT</span><span class="p">,</span>
+                <span class="n">data_type</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">JSON</span>
+            <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Requests daily adjusted stock price time series data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            symbol (str): The symbol of the stock to retrieve data for.</span>
+<span class="sd">            output_size (str): The size of the output data. Either full for</span>
+<span class="sd">                the entire history of the symbol or compact for the last 100</span>
+<span class="sd">                entries.</span>
+<span class="sd">            data_type (str): The format of the returned price data. either csv</span>
+<span class="sd">                or json.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The body of the response from the api.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">Function</span><span class="o">.</span><span class="n">DAILY_ADJUSTED</span><span class="p">,</span>
+            <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">symbol</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_request</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="Client._handle_request"><a class="viewcode-back" href="../../../autoapi/finpy/alphavantage/stocks/index.html#finpy.alphavantage.stocks.Client._handle_request">[docs]</a>    <span class="k">def</span> <span class="nf">_handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">data_type</span><span class="p">):</span>
+        <span class="c1"># request equity data</span>
+        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;outputsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">OutputSize</span><span class="p">(</span><span class="n">output_size</span><span class="p">)</span>
+        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;datatype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataType</span><span class="p">(</span><span class="n">data_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">finpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Adam Beecham.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

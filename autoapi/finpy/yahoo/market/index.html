@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finpy.yahoo.market &#8212; finpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-finpy.yahoo.market">
+<span id="finpy-yahoo-market"></span><h1><a class="reference internal" href="#module-finpy.yahoo.market" title="finpy.yahoo.market"><code class="xref py py-mod docutils literal notranslate"><span class="pre">finpy.yahoo.market</span></code></a><a class="headerlink" href="#module-finpy.yahoo.market" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#finpy.yahoo.market.Client" title="finpy.yahoo.market.Client"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client</span></code></a>(api_key)</p></td>
+<td><p>A client for the yahoo market api yahoo.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="finpy.yahoo.market.Client">
+<em class="property">class </em><code class="sig-prename descclassname">finpy.yahoo.market.</code><code class="sig-name descname">Client</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client for the yahoo market api yahoo.
+Provides market news and stats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>api_key</strong> (<em>str</em>) – A yahoo api key.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="finpy.yahoo.market.Client.API_URL">
+<code class="sig-name descname">API_URL</code><em class="property"> = https://yahoo-finance15.p.rapidapi.com/api/yahoo/</em><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.API_URL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.API_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_mutual_funds">
+<code class="sig-name descname">get_mutual_funds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_mutual_funds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_mutual_funds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request mutual funds ordered by most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing mutual funds ordered by most</dt><dd><p>gains in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_top_gainers">
+<code class="sig-name descname">get_top_gainers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_top_gainers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_top_gainers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request stocks with the most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing stocks with the most gains</dt><dd><p>in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_most_watched">
+<code class="sig-name descname">get_most_watched</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_most_watched"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_most_watched" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request trending stocks in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing trending stocks in</dt><dd><p>today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_news">
+<code class="sig-name descname">get_news</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbol</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_news"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_news" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request recently published news for the provided symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – The symbol for the target stock (e.g. AAPL).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing recently published news for</dt><dd><p>the provided symbol.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_quote">
+<code class="sig-name descname">get_quote</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">symbols</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_quote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_quote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request quote data for stocks, etfs, mutual funds and more.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>symbols</strong> (<em>list</em>) – list of symbols for each target security.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A json string containing quote data for</dt><dd><p>the provided symbols.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="finpy.yahoo.market.Client.get_etfs">
+<code class="sig-name descname">get_etfs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/finpy/yahoo/market.html#Client.get_etfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#finpy.yahoo.market.Client.get_etfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request ETFs ordered by most gains in today’s market.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A json string containing ETFs ordered by most</dt><dd><p>gains in today’s market.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">finpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Adam Beecham.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/autoapi/finpy/yahoo/market/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

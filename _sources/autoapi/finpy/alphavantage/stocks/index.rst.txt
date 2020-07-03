@@ -1,11 +1,11 @@
-:mod:`alphavantage.api`
-=======================
+:mod:`finpy.alphavantage.stocks`
+================================
 
-.. py:module:: alphavantage.api
+.. py:module:: finpy.alphavantage.stocks
 
 .. autoapi-nested-parse::
 
-   Wrapper classes for Alphavantage APIs.
+   Wrapper classes for Alphavantage stock APIs.
 
 
 
@@ -17,15 +17,15 @@ Classes
 
 .. autoapisummary::
 
-   alphavantage.api.Interval
-   alphavantage.api.OutputSize
-   alphavantage.api.DataType
-   alphavantage.api.Function
-   alphavantage.api.StocksAPI
+   finpy.alphavantage.stocks.Interval
+   finpy.alphavantage.stocks.OutputSize
+   finpy.alphavantage.stocks.DataType
+   finpy.alphavantage.stocks.Function
+   finpy.alphavantage.stocks.Client
 
 
 
-.. data:: API_ENDPOINT
+.. data:: API_URL
    :annotation: = https://www.alphavantage.co/query
 
    
@@ -177,10 +177,10 @@ Classes
 
 
 
-.. py:class:: StocksAPI(api_key)
+.. py:class:: Client(api_key)
 
-   A simple wrapper for the Stock Time Series functions provided by
-   the Alpha Vantage REST API.
+   A client for the Stock Time Series functions provided by
+   the AlphaVantage REST API.
 
    :param api_key: An alpha vantage api key.
    :type api_key: str
