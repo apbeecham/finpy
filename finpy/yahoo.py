@@ -2,7 +2,7 @@ import enum
 import requests
 
 class MarketClient:
-    """ A client for the yahoo market api yahoo.
+    """ A client for the yahoo market api.
     Provides market news and stats.
 
     Args:
