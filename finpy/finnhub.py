@@ -325,6 +325,7 @@ class StockClient():
 
     def get_splits(self, symbol, start, end):
         """ Get splits for a stock.
+
         Args:
             symbol (str): The symbol for the target stock.
             start (str): The start date in the form YYYY-MM-DD
