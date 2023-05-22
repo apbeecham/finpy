@@ -1,4 +1,4 @@
-requests==2.21.0
+requests==2.31.0
 bandit==1.6.2
 safety==1.8.5
 pyflakes==2.2.0
